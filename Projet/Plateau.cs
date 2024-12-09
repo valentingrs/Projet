@@ -51,6 +51,7 @@ namespace Projet
 
 		public bool TestPlateau(string mot)
 		{
+			//
 			bool respect = true;
 			Dictionnaire dicoFr = new Dictionnaire("MotsPossiblesFR.txt", "fr");
 			if (dicoFr.Contains(mot))
