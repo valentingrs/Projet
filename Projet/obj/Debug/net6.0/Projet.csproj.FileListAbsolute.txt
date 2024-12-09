@@ -1,0 +1,14 @@
+C:\Users\valen\source\repos\Projet\Projet\bin\Debug\net6.0\Projet.exe
+C:\Users\valen\source\repos\Projet\Projet\bin\Debug\net6.0\Projet.deps.json
+C:\Users\valen\source\repos\Projet\Projet\bin\Debug\net6.0\Projet.runtimeconfig.json
+C:\Users\valen\source\repos\Projet\Projet\bin\Debug\net6.0\Projet.dll
+C:\Users\valen\source\repos\Projet\Projet\bin\Debug\net6.0\Projet.pdb
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.AssemblyInfoInputs.cache
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.AssemblyInfo.cs
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.csproj.CoreCompileInputs.cache
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.dll
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\refint\Projet.dll
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.pdb
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.genruntimeconfig.cache
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\ref\Projet.dll
