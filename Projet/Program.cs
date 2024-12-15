@@ -4,12 +4,14 @@ using System.Security.Cryptography.X509Certificates;
 using static Projet.De;
 using static Projet.Dictionnaire;
 using static Projet.Joueur;
+using static Projet.Jeu;
+using static Projet.Plateau;
 
 namespace Projet
 {
     internal class Program
     {
-        
+
         static public void Test(int n) // fonction à la con juste pour voir si ça marche
         {
             int nbA = 0;
@@ -29,7 +31,7 @@ namespace Projet
                 }
             }
             Console.WriteLine("Nombre de A : " + nbA);
-            Console.WriteLine("Ratio de A : " + Convert.ToDouble(nbA) / Convert.ToDouble(6 *n) + " ; 0.09 théorique");
+            Console.WriteLine("Ratio de A : " + Convert.ToDouble(nbA) / Convert.ToDouble(6 * n) + " ; 0.09 théorique");
             Console.WriteLine("\nNombre de E : " + nbE);
             Console.WriteLine("Ratio de E : " + Convert.ToDouble(nbE) / Convert.ToDouble(6 * n) + " ; 0.15 théorique");
             Console.WriteLine("\nNombre de Z : " + nbJ);
@@ -48,16 +50,13 @@ namespace Projet
             Console.WriteLine(unDe.toString());
         }
 
-        
+
 
         public static void TestDictionnaire()
         {
             string filename = "MotsPossiblesFR.txt";
             Dictionnaire dicoFr = new Dictionnaire(filename, "fr");
-            string mottest = dicoFr.Mots[1];
-            Console.Write(dicoFr.Contains(mottest));
-            
-
+            Console.Write(dicoFr.toString());
         }
 
         public static void TestJoueur()
@@ -84,21 +83,33 @@ namespace Projet
 
         }
 
-        static void TestPlateau()
+        public static void TestPlateau()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Plateau plateau = new Plateau("Lettres.txt");
                 plateau.toString();
                 Console.WriteLine(" ");
             }
-            
+
+        }
+
+        public static void TestJeu()
+        {
+            Joueur joueur1 = new Joueur("joueur 1 ");
+            Joueur joueur2 = new Joueur("joueur 2 ");
+            Plateau plateau = new Plateau("Lettres.txt");
+            DateTime heureDebut = DateTime.Now;
+            Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
+            jeu.InitialisationJeu();
+
+
         }
         public static void Main(string[] args)
         {
-            TestDictionnaire();
+            TestJeu();
         }
-     
-        
+
+
     }
 }
