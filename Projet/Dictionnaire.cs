@@ -103,18 +103,54 @@ namespace Projet
             Console.WriteLine(langue);
         }
 
-        private int RechercheDicho(string mot, string[] tab, int deb, int fin)
+        public void TriDico() // le trier avec du tri fusion
         {
-            int mil = (deb + fin) / 2;
-            if (deb > fin) { return -1; }
-            if (mot == tab[mil]) { }
-        }
-        public bool RechDichoRecursif(string mot)
-        {
-            // on suppose que le dictionnaire est dans l'ordre alphabétiqeu donc trié
-            return RechercheDicho(mot, 0, mots.Length);
+            for (int i = 0; i < mots.Length; i++)
+            {
+                int minIndex = 1;
+                for (int j = i + 1; j < mots.Length; j++)
+                {
+                    if (String.Compare(mots[minIndex], mots[j]) < 0) { minIndex = j; }
+                }
+                if (minIndex != i)
+                {
+                    string temp = mots[i];
+                    mots[i] = mots[minIndex];
+                    mots[minIndex] = temp;
+                }
+            }
         }
 
+        public int RechercheDicho(string mot, string[] tab, int deb, int fin)
+        {
+            Console.WriteLine(tab[deb] + "  " + tab[fin]);
+            int mil = (deb + fin) / 2;
+            if (deb > fin) { return -1; }
+            else
+            {
+                if (mot == tab[mil]) { return mil; }
+                else
+                {
+                    if (String.Compare(mot, tab[mil]) < 0)
+                    {
+                        return RechercheDicho(mot, tab, mil + 1, fin);
+                    }
+                    else
+                    {
+                        return RechercheDicho(mot, tab, deb, mil - 1);
+                    }
+                }
+            }
+        }
+        public bool Contains(string mot)
+        {
+            // on suppose que le dictionnaire est dans l'ordre alphabétiqeu donc trié
+            return (!(RechercheDicho(mot, mots, 0, mots.Length - 1) == -1));
+        }
+
+
+    }
+}
 
     }
 }
