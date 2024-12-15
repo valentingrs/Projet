@@ -54,7 +54,10 @@ namespace Projet
         {
             string filename = "MotsPossiblesFR.txt";
             Dictionnaire dicoFr = new Dictionnaire(filename, "fr");
-            Console.Write(dicoFr.toString());
+            string mottest = dicoFr.Mots[1];
+            Console.Write(dicoFr.Contains(mottest));
+            
+
         }
 
         public static void TestJoueur()
@@ -93,8 +96,7 @@ namespace Projet
         }
         public static void Main(string[] args)
         {
-            TestPlateau();
-            // Test Github
+            TestDictionnaire();
         }
      
         

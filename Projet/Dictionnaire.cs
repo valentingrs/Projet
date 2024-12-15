@@ -14,7 +14,7 @@ namespace Projet
             {
                 mots[i] = listeMots[i];
             }
-
+            TriDico();
         }
 
         public List<string> LireFichierMots(string filename)
@@ -31,6 +31,11 @@ namespace Projet
             }
             return dico;
 
+        }
+
+        public string[] Mots
+        {
+            get { return mots; }
         }
 
         public int MotsLongueur(int longueur)
@@ -61,7 +66,7 @@ namespace Projet
             return occ;
         }
 
-        public string toString()
+        public override string ToString()
         {
             string s = "";
             for (int i = 2; i <= 24; i++)
@@ -82,18 +87,6 @@ namespace Projet
             return s;
         }
 
-        public bool Contains(string mot)
-        {
-            bool trouve = false; // en récursif ?
-            int i = 0;
-            while (trouve == false && i < mots.Length)
-            {
-                if (mots[i] == mot) { trouve = true; }
-                i++;
-            }
-            return trouve;
-        }
-
         public void LireMots()
         {
             for (int i = 0; i < 10; i++)
@@ -103,16 +96,49 @@ namespace Projet
             Console.WriteLine(langue);
         }
 
-        private int RechercheDicho(string mot, string[] tab, int deb, int fin)
+        public void TriDico() // le trier avec du tri fusion
         {
+            for (int i = 0; i < mots.Length; i++)
+            {
+                int minIndex = 1;
+                for (int j = i + 1; j < mots.Length; j++)
+                {
+                    if (String.Compare(mots[minIndex], mots[j]) < 0) { minIndex = j; }
+                }
+                if (minIndex != i)
+                {
+                    string temp = mots[i];
+                    mots[i] = mots[minIndex];
+                    mots[minIndex] = temp;
+                }
+            }
+        }
+        
+        public int RechercheDicho(string mot, string[] tab, int deb, int fin)
+        {
+            Console.WriteLine(tab[deb] + "  " + tab[fin]);
             int mil = (deb + fin) / 2;
             if (deb > fin) { return -1; }
-            if (mot == tab[mil]) { }
+            else
+            {
+                if (mot == tab[mil]) { return mil; }
+                else
+                {
+                    if (String.Compare(mot, tab[mil]) < 0)
+                    {
+                        return RechercheDicho(mot, tab, mil + 1, fin);
+                    }
+                    else
+                    {
+                        return RechercheDicho(mot, tab, deb, mil - 1);
+                    }
+                }
+            }
         }
-        public bool RechDichoRecursif(string mot)
+        public bool Contains(string mot)
         {
             // on suppose que le dictionnaire est dans l'ordre alphabétiqeu donc trié
-            return RechercheDicho(mot, 0, mots.Length);
+            return (!(RechercheDicho(mot, mots, 0, mots.Length - 1) == -1));
         }
 
 
