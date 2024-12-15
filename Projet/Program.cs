@@ -83,7 +83,7 @@ namespace Projet
 
         }
 
-        static void TestPlateau()
+        public static void TestPlateau()
         {
             for (int i = 0; i < 5; i++)
             {
@@ -94,7 +94,7 @@ namespace Projet
             
         }
 
-        static void TestJeu()
+        public static void TestJeu()
         {
             Joueur joueur1 = new Joueur("joueur 1 ");
             Joueur joueur2 = new Joueur("joueur 2 ");
