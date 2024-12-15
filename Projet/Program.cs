@@ -19,29 +19,7 @@ namespace Projet
             Console.Write(dicoFr.toString());
         }
 
-        public static void TestJoueur()
-        {
-            Joueur j = new Joueur("valentin");
-            foreach (string mot in j.MotsTrouves)
-            {
-                Console.Write(mot + " ");
-            }
-            Console.WriteLine(" ");
-            j.Add_Mot("beau");
-            foreach (string mot in j.MotsTrouves)
-            {
-                Console.Write(mot + " ");
-            }
-            Console.WriteLine(" ");
-            j.Add_Mot("gosse");
-            foreach (string mot in j.MotsTrouves)
-            {
-                Console.Write(mot + " ");
-            }
-            Console.WriteLine("\n" + j.Contain("beau") + " " + j.Contain("moche") + "\n");
-            j.toString();
-
-        }
+        
 
         public static void TestPlateau()
         {

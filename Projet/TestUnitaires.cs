@@ -1,6 +1,8 @@
 using System;
 using static Projet.De;
 
+//Faire les test pour le vide et le null
+
 namespace Projet
 {
 	internal class TestUnitaires
@@ -80,6 +82,41 @@ namespace Projet
 				Console.WriteLine(de);
 			}
 
+		}
+
+		static public void TestJoueur()
+		{
+			Joueur joueur = new Joueur("Pierre");
+			Joueur joueur2 = new Joueur("Jules", 10);
+			if (joueur.Nom != "Pierre" || joueur2.Nom != "Jules")
+				Console.WriteLine("Echec, le nom est incorrect");
+			else if (joueur.Score != 10 || joueur2.Score != 0)
+				Console.WriteLine("Echec, le score est incorrect");
+			else
+				Console.WriteLine("Test réussi");
+		}
+
+		static public void TestAdd()
+		{
+			Joueur joueur = new Joueur("Pierre", 5);
+			joueur.Add_Mot("chat");
+			if (joueur.Score != 6) { Console.WriteLine("Echec du test, score incorrect :("); }
+			else if (!joueur.MotsTrouves.Contains("chat")) { Console.WriteLine("Echec du test, mot non ajouté"); }
+			else { Console.WriteLine("Test réussi !"); }
+		}
+
+		static public void TestContains()
+		{
+			Joueur joueur = new Joueur("Pierre");
+			joueur.Add_Mot("chat");
+			if (!joueur.Contain("chat"))
+				Console.WriteLine("TestContainMotPresent échoué: Mot trouvé, mais Contain a renvoyé false");
+			else
+				Console.WriteLine("TestContainMotPresent réussi");
+			if (joueur.Contain("chien"))
+				Console.WriteLine("TestContainMotPresent échoué: Mot trouvé, mais Contain a renvoyé false");
+			else
+				Console.WriteLine("TestContainMotPresent réussi");
 		}
 	}
 }
