@@ -103,6 +103,18 @@ namespace Projet
             Console.WriteLine(langue);
         }
 
+        private int RechercheDicho(string mot, string[] tab, int deb, int fin)
+        {
+            int mil = (deb + fin) / 2;
+            if (deb > fin) { return -1; }
+            if (mot == tab[mil]) { }
+        }
+        public bool RechDichoRecursif(string mot)
+        {
+            // on suppose que le dictionnaire est dans l'ordre alphabétiqeu donc trié
+            return RechercheDicho(mot, 0, mots.Length);
+        }
+
 
     }
 }
