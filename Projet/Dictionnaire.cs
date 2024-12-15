@@ -14,7 +14,7 @@ namespace Projet
             {
                 mots[i] = listeMots[i];
             }
-            TriDico();
+
         }
 
         public List<string> LireFichierMots(string filename)
@@ -31,11 +31,6 @@ namespace Projet
             }
             return dico;
 
-        }
-
-        public string[] Mots
-        {
-            get { return mots; }
         }
 
         public int MotsLongueur(int longueur)
@@ -66,7 +61,7 @@ namespace Projet
             return occ;
         }
 
-        public override string ToString()
+        public string toString()
         {
             string s = "";
             for (int i = 2; i <= 24; i++)
@@ -113,7 +108,7 @@ namespace Projet
                 }
             }
         }
-        
+
         public int RechercheDicho(string mot, string[] tab, int deb, int fin)
         {
             Console.WriteLine(tab[deb] + "  " + tab[fin]);
