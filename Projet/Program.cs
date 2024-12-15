@@ -26,7 +26,7 @@ namespace Projet
             for (int i = 0; i < 5; i++)
             {
                 Plateau plateau = new Plateau("Lettres.txt");
-                plateau.toString();
+                Console.WriteLine(plateau);
                 Console.WriteLine(" ");
             }
 
@@ -45,7 +45,7 @@ namespace Projet
         }
         public static void Main(string[] args)
         {
-            TestUnitaires.TestRemplir(10000);
+            TestPlateau();
         }
 
 

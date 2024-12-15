@@ -33,6 +33,7 @@ namespace Projet
 		public void TourJoueur(Joueur joueur)
 		{
 			DateTime debutTour = DateTime.Now;
+			Console.WriteLine();
 			while (Convert.ToInt32((DateTime.Now - debutTour).TotalSeconds) < 60) // tant que il ne s'est pas écoulé 1 minute depuis le début du tour
 			{
 				Console.Write("Rentrer un mot : ");
@@ -49,7 +50,7 @@ namespace Projet
 		{
 			while (Convert.ToInt32((DateTime.Now - heureDebut).TotalSeconds) < 360)
 			{
-				plateau.toString();
+				Console.WriteLine(plateau);
 				Console.WriteLine(" ");
 				TourJoueur(joueur1);
 				Console.WriteLine(" ");
@@ -59,6 +60,7 @@ namespace Projet
 				Console.WriteLine(joueur1.toString());
 				Console.WriteLine(joueur2.toString());
 				Console.WriteLine(" ");
+				plateau = new Plateau("Lettres.txt"); // jsp si faut juste relancer les dés ou changer les dés carrément
 			}
 			partieTerminee = true;
 		}
