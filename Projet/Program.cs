@@ -4,6 +4,8 @@ using System.Security.Cryptography.X509Certificates;
 using static Projet.De;
 using static Projet.Dictionnaire;
 using static Projet.Joueur;
+using static Projet.Jeu;
+using static Projet.Plateau;
 
 namespace Projet
 {
@@ -83,7 +85,7 @@ namespace Projet
 
         static void TestPlateau()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Plateau plateau = new Plateau("Lettres.txt");
                 plateau.toString();
@@ -91,10 +93,20 @@ namespace Projet
             }
             
         }
+
+        static void TestJeu()
+        {
+            Joueur joueur1 = new Joueur("joueur 1 ");
+            Joueur joueur2 = new Joueur("joueur 2 ");
+            Plateau plateau = new Plateau("Lettres.txt");
+            DateTime heureDebut = DateTime.Now;
+            Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
+            Console.Write(joueur1);
+
+        }
         public static void Main(string[] args)
         {
-            TestPlateau();
-            // Test Github
+            TestJeu();
         }
      
         

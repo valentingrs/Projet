@@ -49,7 +49,7 @@ namespace Projet
 			}
 		}
 
-		public bool TestPlateau(string mot)
+		public void TestPlateau(string mot)
 		{
 			//
 			bool respect = true;
