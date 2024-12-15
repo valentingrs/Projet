@@ -101,7 +101,8 @@ namespace Projet
             Plateau plateau = new Plateau("Lettres.txt");
             DateTime heureDebut = DateTime.Now;
             Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
-            Console.Write(joueur1);
+            jeu.InitialisationJeu();
+            
 
         }
         public static void Main(string[] args)

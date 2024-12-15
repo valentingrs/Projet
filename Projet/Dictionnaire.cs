@@ -82,18 +82,6 @@ namespace Projet
             return s;
         }
 
-        public bool Contains(string mot)
-        {
-            bool trouve = false; // en récursif ?
-            int i = 0;
-            while (trouve == false && i < mots.Length)
-            {
-                if (mots[i] == mot) { trouve = true; }
-                i++;
-            }
-            return trouve;
-        }
-
         public void LireMots()
         {
             for (int i = 0; i < 10; i++)
@@ -148,9 +136,6 @@ namespace Projet
             return (!(RechercheDicho(mot, mots, 0, mots.Length - 1) == -1));
         }
 
-
-    }
-}
 
     }
 }
