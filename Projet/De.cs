@@ -69,7 +69,7 @@ namespace Projet
 				this.faceVisible = i;
 			}
 
-			public string toString()
+			public override string ToString()
 			{
 				string de = "";
 
