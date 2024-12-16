@@ -176,8 +176,8 @@ namespace Projet
             DateTime heureDebut = DateTime.Now;
             Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
             jeu.InitialisationJeu();
-
-
         }
+
+
     }
 }

@@ -3,8 +3,10 @@ using static Projet.Dictionnaire;
 using static Projet.Joueur;
 using static Projet.Plateau;
 // améliorations : affichage chrono inutile des fois
-// arrêter dès que le temps imparti est écoulé ?
+// arrêter dès que le temps imparti est écoulé ? est ce que c'est utile d'afficher le temps restant ?
 // posssibilité de faire à plusieurs joueurs
+// convertir temps restant de la partie en affiahce minutes secondes
+// possibilité de choisir le temps dans la partie
 
 namespace Projet
 {
@@ -36,8 +38,6 @@ namespace Projet
 
         public void InitialisationJeu()
 		{
-			Console.WriteLine(joueur1.Nom);
-			Console.WriteLine(joueur2.Nom + "\n");
 			Console.WriteLine("La partie commence : ");
 		}
 
@@ -102,7 +102,7 @@ namespace Projet
 				Console.WriteLine(" ");
 
                 tempsEcoule = Convert.ToInt32((DateTime.Now - heureDebut).TotalSeconds);
-                Console.WriteLine("Temps restant de la partie : " + (360 - tempsEcoule) + " s");
+                Console.WriteLine("Temps restant de la partie : " + (360 - tempsEcoule) + " s \n");
                 
 
                 TourJoueur(joueur2);
@@ -110,9 +110,9 @@ namespace Projet
 				Console.WriteLine(joueur1.Nom + "  " + joueur1.Score + " - " + joueur2.Score + "  " + joueur2.Nom);
 
                 tempsEcoule = Convert.ToInt32((DateTime.Now - heureDebut).TotalSeconds);
-                Console.WriteLine("Temps restant de la partie : " + (360 - tempsEcoule) + " s");
-                Console.WriteLine(" ");
-				//plateau = new Plateau(); // jsp si faut juste relancer les dés ou changer les dés carrément
+
+				if (tempsEcoule < 120) { Console.WriteLine("Temps restant de la partie : " + (360 - tempsEcoule) + " s \n"); }
+                
 			}
 			partieTerminee = true;
 		}
