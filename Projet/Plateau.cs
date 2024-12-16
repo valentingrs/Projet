@@ -55,6 +55,21 @@ namespace Projet
             return plateau;
         }
 
+        public void RelancerDes() // relancer les des
+        {
+            Dé de;
+            for (int i = 0; i < plateauDes.GetLength(0); i++)
+            {
+                for (int j = 0; j < plateauDes.GetLength(1); j++)
+                {
+                    de = plateauDes[i, j]; // met à jour la face Visible des de
+                    de.Lance();
+                    valVisible[i, j] = plateauDes[i, j].LettresDe[plateauDes[i, j].FaceVisible]; // maj plateau avec les dés mis à jour
+
+                }
+            }
+        }
+
         public bool ContraintePlateau(string mot)
         {
             if (dictionnaire.Contains(mot) && Verif_Plateau(mot)) return true;

@@ -14,7 +14,6 @@ namespace Projet
     {
         public static void TestDictionnaire()
         {
-            string filename = "MotsPossiblesFR.txt";
             Dictionnaire dicoFr = new Dictionnaire("fr");
             string mot = dicoFr.Mots[50];
             Console.WriteLine(mot);
@@ -46,18 +45,31 @@ namespace Projet
 
         public static void TestJeu()
         {
+            Dé[,] matrice_des = new Dé[4, 4];
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Dé de = new Dé();
+                    matrice_des[i, j] = de;
+                }
+            }
             Joueur joueur1 = new Joueur("joueur 1 ");
             Joueur joueur2 = new Joueur("joueur 2 ");
-            Plateau plateau = null;
+            Plateau plateau = new Plateau(matrice_des);
             DateTime heureDebut = DateTime.Now;
             Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
             jeu.InitialisationJeu();
-
+            jeu.PartieComplete();
+            if (jeu.PartieTerminee==true)
+            {
+                jeu.FinPartie();
+            }
 
         }
         public static void Main(string[] args)
         {
-            TestPlateau();
+            TestJeu();
         }
 
 

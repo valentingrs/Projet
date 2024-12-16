@@ -135,5 +135,49 @@ namespace Projet
 			else
 				Console.WriteLine("TestContainMotPresent réussi");
 		}
-	}
+
+        public static void TestDictionnaire()
+        {
+            string filename = "MotsPossiblesFR.txt";
+            Dictionnaire dicoFr = new Dictionnaire("fr");
+            string mot = dicoFr.Mots[50];
+            Console.WriteLine(mot);
+            Console.WriteLine(dicoFr.RechercheDichoRecursif(mot));
+            Console.WriteLine(dicoFr.RechercheDichoRecursif("DLSKJDSMLQK"));
+        }
+
+
+
+        public static void TestPlateau()
+        {
+            Dé[,] matrice_des = new Dé[4, 4];
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Dé de = new Dé();
+                    matrice_des[i, j] = de;
+                }
+            }
+            Plateau plateau = new Plateau(matrice_des);
+            Console.WriteLine(plateau);
+
+            Console.Write("Entrer un mot : ");
+            string mot = Console.ReadLine();
+            Console.WriteLine("Votre mot  :" + mot);
+            Console.WriteLine(plateau.ContraintePlateau(mot));
+        }
+
+        public static void TestJeu()
+        {
+            Joueur joueur1 = new Joueur("joueur 1 ");
+            Joueur joueur2 = new Joueur("joueur 2 ");
+            Plateau plateau = null;
+            DateTime heureDebut = DateTime.Now;
+            Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
+            jeu.InitialisationJeu();
+
+
+        }
+    }
 }

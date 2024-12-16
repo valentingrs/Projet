@@ -43,7 +43,7 @@ namespace Projet
 		public int Score
 		{
 			get { return score; }
-			private set { score = value; }
+			set { score = value; }
 		}
 
 		public List<string> MotsTrouves
@@ -82,7 +82,22 @@ namespace Projet
 			Score += 1;
 		}
 
-		public string toString()
+		public void AfficherScore()
+		{
+			Console.WriteLine("Le score de " + nom + " est de " + score);
+		}
+
+		public void AfficherMotsTrouves()
+		{
+			Console.Write("Mots trouvés : ");
+			foreach (string mot in motsTrouves)
+			{
+				Console.Write(mot + " ");
+			}
+			Console.WriteLine();
+		}
+
+		public override string ToString()
 		{
 			return "Le joueur " + nom + " a le score de " + score + " points";
 		}
