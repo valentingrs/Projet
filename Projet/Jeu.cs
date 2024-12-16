@@ -1,4 +1,4 @@
-using static Projet.De;
+using static Projet.Dé;
 using static Projet.Dictionnaire;
 using static Projet.Joueur;
 using static Projet.Plateau;
@@ -60,7 +60,7 @@ namespace Projet
 				Console.WriteLine(joueur1.toString());
 				Console.WriteLine(joueur2.toString());
 				Console.WriteLine(" ");
-				plateau = new Plateau("Lettres.txt"); // jsp si faut juste relancer les dés ou changer les dés carrément
+				//plateau = new Plateau(); // jsp si faut juste relancer les dés ou changer les dés carrément
 			}
 			partieTerminee = true;
 		}

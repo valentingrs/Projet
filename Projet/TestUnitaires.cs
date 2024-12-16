@@ -1,5 +1,5 @@
 using System;
-using static Projet.De;
+using static Projet.Dé;
 
 //Faire les test pour le vide et le null
 
@@ -27,7 +27,7 @@ namespace Projet
 			for (int i = 0; i < n; i++)
 			{
 				
-				Dé de = new Dé(filename);
+				Dé de = new Dé();
 				for (int j = 0; j < 6; j++)
 				{
 					switch (de.LettresDe[j])
@@ -72,9 +72,26 @@ namespace Projet
 
 		}
 
+		static public void TestDe()
+		{
+			Dé de = new Dé();
+			if (de.LettresDe.Length != 6) { Console.WriteLine("Echec du test, pas la bonne longueur"); }
+			else if (de.FaceVisible < 0 || de.FaceVisible >=6) { Console.WriteLine("La face visible ne marche pas"); }
+			else { Console.WriteLine("TestDe réussi, bonne longeuur, bonne face visible"); }
+		}
+
+		static public void TestDeString()
+		{
+			Dé de = new Dé();
+			string[] tab = (de.ToString()).Split(',');
+			if (Convert.ToChar(tab[0]) != de.LettresDe[de.FaceVisible]) { Console.Write("Echec du test, la face visible n'est pas en prmeier"); }
+			else { Console.WriteLine("Test réussi"); }
+
+		}
+
 		static public void TestLance(int n)
 		{
-			Dé de = new Dé("Lettres.txt");
+			Dé de = new Dé();
 			Console.WriteLine(de);
 			for (int i = 0; i < n; i++)
 			{

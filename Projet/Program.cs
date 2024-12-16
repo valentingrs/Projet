@@ -1,8 +1,8 @@
 ﻿using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
-using static Projet.De;
 using static Projet.TestUnitaires;
+using static Projet.Dé;
 using static Projet.Dictionnaire;
 using static Projet.Joueur;
 using static Projet.Jeu;
@@ -15,28 +15,40 @@ namespace Projet
         public static void TestDictionnaire()
         {
             string filename = "MotsPossiblesFR.txt";
-            Dictionnaire dicoFr = new Dictionnaire(filename, "fr");
-            Console.Write(dicoFr.toString());
+            Dictionnaire dicoFr = new Dictionnaire("fr");
+            string mot = dicoFr.Mots[50];
+            Console.WriteLine(mot);
+            Console.WriteLine(dicoFr.RechercheDichoRecursif(mot));
+            Console.WriteLine(dicoFr.RechercheDichoRecursif("DLSKJDSMLQK"));
         }
 
         
 
         public static void TestPlateau()
         {
-            for (int i = 0; i < 5; i++)
+            Dé[,] matrice_des = new Dé[4, 4];
+            for (int i = 0; i < 4; i++)
             {
-                Plateau plateau = new Plateau("Lettres.txt");
-                Console.WriteLine(plateau);
-                Console.WriteLine(" ");
+                for (int j = 0; j < 4; j++)
+                {
+                    Dé de = new Dé();
+                    matrice_des[i, j] = de;
+                }
             }
+            Plateau plateau = new Plateau(matrice_des);
+            Console.WriteLine(plateau);
 
+            Console.Write("Entrer un mot : ");
+            string mot = Console.ReadLine();
+            Console.WriteLine("Votre mot  :" + mot);
+            Console.WriteLine(plateau.ContraintePlateau(mot));
         }
 
         public static void TestJeu()
         {
             Joueur joueur1 = new Joueur("joueur 1 ");
             Joueur joueur2 = new Joueur("joueur 2 ");
-            Plateau plateau = new Plateau("Lettres.txt");
+            Plateau plateau = null;
             DateTime heureDebut = DateTime.Now;
             Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
             jeu.InitialisationJeu();

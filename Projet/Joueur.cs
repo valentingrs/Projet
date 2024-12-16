@@ -1,5 +1,6 @@
 using static System.Formats.Asn1.AsnWriter;
-
+// COMPLETE ET TESTEE 
+// à optimiser
 namespace Projet
 {
 	public class Joueur
