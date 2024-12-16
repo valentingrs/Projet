@@ -8,6 +8,21 @@ using static Projet.Joueur;
 using static Projet.Jeu;
 using static Projet.Plateau;
 
+// tous les trucs à améliorer
+// trucs plus importants dans le code : 
+// nuage de mots
+// complexité des méthodes, simplification de code, regions, commentaires, ...
+// posssibilité de faire à plusieurs joueurs ; de choisir le temps de la partie
+// convertir temps restant de la partie en affiahce minutes secondes
+// classe Jeu : arrêter dès que le temps imparti est écoulé ? est ce que c'est utile d'afficher le temps restant ?
+
+// trucs par rapport au rendu final
+// uml 
+// rapport fnal avec tentatives pour la recherche d'un mot
+// tests unitaires
+// interface graphique ? ia ?
+
+
 namespace Projet
 {
     internal class Program
@@ -19,7 +34,7 @@ namespace Projet
             Console.Write("Le deuxième joueur rentre un pseudo (pas le même si possible) : ");
             Joueur joueur2 = new Joueur(Console.ReadLine());
 
-            Dé[,] matrice_des = new Dé[4, 4];
+            Dé[,] matrice_des = new Dé[4, 4]; // création des des
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)

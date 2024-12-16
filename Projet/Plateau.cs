@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using static Projet.Dé;
 using static Projet.Dictionnaire;
 using static Projet.Joueur;
-// à optimiser
+
 namespace Projet
 {
     public class Plateau

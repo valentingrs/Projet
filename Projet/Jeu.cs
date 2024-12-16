@@ -2,11 +2,7 @@ using static Projet.Dé;
 using static Projet.Dictionnaire;
 using static Projet.Joueur;
 using static Projet.Plateau;
-// améliorations : affichage chrono inutile des fois
-// arrêter dès que le temps imparti est écoulé ? est ce que c'est utile d'afficher le temps restant ?
-// posssibilité de faire à plusieurs joueurs
-// convertir temps restant de la partie en affiahce minutes secondes
-// possibilité de choisir le temps dans la partie
+
 
 namespace Projet
 {
