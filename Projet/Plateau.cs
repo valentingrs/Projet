@@ -15,14 +15,14 @@ namespace Projet
         #endregion Attributs
 
         #region Constructeur
-        public Plateau(Dé[,] plateauDes)
+        public Plateau(Dé[,] plateauDes, string langue)
         {
             if (plateauDes.GetLength(0) != plateauDes.GetLength(1))
                 throw new ArgumentException("Le plateau doit être de la forme nxn.");
 
             this.plateauDes = plateauDes;
             this.valVisible = new char[plateauDes.GetLength(0), plateauDes.GetLength(1)];
-            this.dictionnaire = new Dictionnaire("fr");
+            this.dictionnaire = new Dictionnaire(langue);
 
             for (int i = 0; i < plateauDes.GetLength(0); i++)
             {

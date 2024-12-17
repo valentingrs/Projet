@@ -44,7 +44,7 @@ namespace Projet
                 }
             }
 
-            Plateau plateau = new Plateau(matrice_des);
+            Plateau plateau = new Plateau(matrice_des, "en");
             DateTime heureDebut = DateTime.Now;
             Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
 

@@ -159,7 +159,7 @@ namespace Projet
                     matrice_des[i, j] = de;
                 }
             }
-            Plateau plateau = new Plateau(matrice_des);
+            Plateau plateau = new Plateau(matrice_des, "fr");
             Console.WriteLine(plateau);
 
             Console.Write("Entrer un mot : ");

@@ -79,7 +79,7 @@ namespace Projet
             Dictionary<char, List<string>> motsParLettre = new Dictionary<char, List<string>>();
             
             foreach (string mot in this.mots)
-            {   
+            {
                 char c = mot[0]; // premier caractère du mot
 
                 if (!motsParLettre.ContainsKey(c)) // si dans le dico il n'y a pas de mot commencant par cette lettre

@@ -52,9 +52,9 @@ namespace Projet
 				Console.WriteLine("Temps restant du tour : " + (60-tempsEcoule) + "s");
 				Console.Write("Rentrer un mot : ");
 
-				string motRentre = Console.ReadLine();
+				string motRentre = Console.ReadLine().ToUpper();
 				if (motRentre == "") { break; } // le joueur a plus d'inspi
-				if (plateau.ContraintePlateau(motRentre.ToUpper()) == true)
+				if (plateau.ContraintePlateau(motRentre) == true)
 				{
 					joueur.MotsTrouves.Add(motRentre);
                     joueur.Score += CalculScore(motRentre);
