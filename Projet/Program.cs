@@ -31,6 +31,15 @@ namespace Projet
         {
             Console.Write("Combien de temps pour la partie (en secondes) : ");
             int time = Convert.ToInt32(Console.ReadLine());
+            Console.Write("En quelle langue voulez vous jouer en français (fr) ou anglais (en) : ");
+            string langue;
+            if (Console.ReadLine().ToLower() == "fr") {  langue = "fr"; }
+            else if (Console.ReadLine().ToLower() == "en") { langue = "en"; }
+            else
+            {
+                Console.WriteLine("Vous n'avez pas rentré une langue valide. Dans ce cas je chosis à votre place et on prend français");
+                langue = "fr";
+            }
             Console.Write("Le premier joueur rentre un pseudo : ");
             Joueur joueur1 = new Joueur(Console.ReadLine());
             Console.Write("Le deuxième joueur rentre un pseudo : ");            
@@ -54,7 +63,7 @@ namespace Projet
                 }
             }
 
-            Plateau plateau = new Plateau(matrice_des, "en");
+            Plateau plateau = new Plateau(matrice_des, langue);
             DateTime heureDebut = DateTime.Now;
             Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut, time);
 

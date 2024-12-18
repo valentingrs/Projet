@@ -13,7 +13,6 @@ namespace Projet
 		private Joueur joueur2;
 		private Plateau plateau;
 		private DateTime heureDebut; // heure de début de la partie
-		private int tempsEcoulePartie; // temps écoulé depuis le début de la partie
 		private int tempsPartie; // temps total de la partie
 		private bool partieTerminee; // statut de la partie : en cours ou non
 		private Dictionary<char, int> lettresScore = new Dictionary<char, int>(); // dictionnaire qui associe un score aux lettres
@@ -24,7 +23,6 @@ namespace Projet
 			this.joueur2 = joueur2;
 			this.plateau = plateau;
 			this.heureDebut = heureDebut;
-            this.tempsEcoulePartie = 0;
 			this.partieTerminee = false;
 			this.lettresScore = LettresScore();
 			this.tempsPartie = tempsPartie;
