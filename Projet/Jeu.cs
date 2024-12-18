@@ -8,15 +8,17 @@ namespace Projet
 {
 	public class Jeu
 	{
+
 		private Joueur joueur1;
 		private Joueur joueur2;
 		private Plateau plateau;
-		private DateTime heureDebut;
-		private int tempsEcoulePartie;
-		private bool partieTerminee;
-		private Dictionary<char, int> lettresScore = new Dictionary<char, int>();
+		private DateTime heureDebut; // heure de début de la partie
+		private int tempsEcoulePartie; // temps écoulé depuis le début de la partie
+		private int tempsPartie; // temps total de la partie
+		private bool partieTerminee; // statut de la partie : en cours ou non
+		private Dictionary<char, int> lettresScore = new Dictionary<char, int>(); // dictionnaire qui associe un score aux lettres
 
-		public Jeu(Joueur joueur1, Joueur joueur2, Plateau plateau, DateTime heureDebut)
+		public Jeu(Joueur joueur1, Joueur joueur2, Plateau plateau, DateTime heureDebut, int tempsPartie)
 		{
 			this.joueur1 = joueur1;
 			this.joueur2 = joueur2;
@@ -25,6 +27,7 @@ namespace Projet
             this.tempsEcoulePartie = 0;
 			this.partieTerminee = false;
 			this.lettresScore = LettresScore();
+			this.tempsPartie = tempsPartie;
 		}
 
         public bool PartieTerminee
@@ -39,16 +42,16 @@ namespace Projet
 
 		public void TourJoueur(Joueur joueur)
 		{
-			Console.WriteLine("Au tour de " + joueur.Nom);
-			plateau.RelancerDes(); // bah du coup la première version du plateau sert à rien mais oklm
-			Console.WriteLine(plateau);
+            Console.WriteLine("Au tour de " + joueur.Nom);
+            Console.WriteLine(plateau);
 
-			DateTime debutTour = DateTime.Now; // debut du tour
+            DateTime debutTour = DateTime.Now; // debut du tour
 			Console.WriteLine();
 			int tempsEcoule = Convert.ToInt32((DateTime.Now - debutTour).TotalSeconds); // temps ecoulé depuis le début du tour
 
             while (tempsEcoule < 60) // tant que il ne s'est pas écoulé 1 minute depuis le début du tour
 			{
+
 				Console.WriteLine("Temps restant du tour : " + (60-tempsEcoule) + "s");
 				Console.Write("Rentrer un mot : ");
 
@@ -65,9 +68,13 @@ namespace Projet
 			Console.WriteLine("Fin de votre tour " + joueur.Nom);
 			joueur.AfficherMotsTrouves();
 			joueur.AfficherScore();
+
+            
+            plateau.RelancerDes(); // bah du coup la première version du plateau sert à rien mais oklm
+            
         }
 
-		private int CalculScore(string mot)
+		public int CalculScore(string mot)
 		{
 			int score = 0;
 			foreach (char l in mot)
@@ -91,14 +98,14 @@ namespace Projet
 		public void PartieComplete()
 		{
 			int tempsEcoule = Convert.ToInt32((DateTime.Now - heureDebut).TotalSeconds);
-			while (Convert.ToInt32((DateTime.Now - heureDebut).TotalSeconds) < 120)
+			while (Convert.ToInt32((DateTime.Now - heureDebut).TotalSeconds) < tempsPartie)
 			{
 				Console.WriteLine(" ");
 				TourJoueur(joueur1);
 				Console.WriteLine(" ");
-
+				
                 tempsEcoule = Convert.ToInt32((DateTime.Now - heureDebut).TotalSeconds);
-                Console.WriteLine("Temps restant de la partie : " + (360 - tempsEcoule) + " s \n");
+                Console.WriteLine("Temps restant de la partie : " + (tempsPartie - tempsEcoule) + " s \n");
                 
 
                 TourJoueur(joueur2);
@@ -107,7 +114,7 @@ namespace Projet
 
                 tempsEcoule = Convert.ToInt32((DateTime.Now - heureDebut).TotalSeconds);
 
-				if (tempsEcoule < 120) { Console.WriteLine("Temps restant de la partie : " + (360 - tempsEcoule) + " s \n"); }
+				if (tempsEcoule < tempsPartie) { Console.WriteLine("Temps restant de la partie : " + (tempsPartie - tempsEcoule) + " s \n"); }
                 
 			}
 			partieTerminee = true;

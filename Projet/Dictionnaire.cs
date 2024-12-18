@@ -152,7 +152,12 @@ namespace Projet
 
         public bool RechercheDichoRecursif(string mot, int deb = 0, int fin = -1)
         {
-            if (!motsParLongueur.ContainsKey(mot.Length)) return false;
+            if (!motsParLongueur.ContainsKey(mot.Length)) 
+            {
+                Console.WriteLine("c'est containskey qui foire");
+                return false;
+            }
+                
 
             List<string> mots = motsParLongueur[mot.Length];
 
@@ -161,11 +166,20 @@ namespace Projet
                 fin = mots.Count - 1;
             }
 
-            if (deb > fin) return false;
+            if (deb > fin)
+            {
+                Console.WriteLine("il n'appartient aps");
+                return false;
+            }
+                
 
             int mil = (deb + fin) / 2;
 
-            if (mot == mots[mil]) return true;
+            if (mot == mots[mil])
+            {
+                return true;
+            }
+            
 
             if (String.Compare(mot, mots[mil]) < 0)
             {

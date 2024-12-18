@@ -7,6 +7,7 @@ using static Projet.Dictionnaire;
 using static Projet.Joueur;
 using static Projet.Jeu;
 using static Projet.Plateau;
+using static System.Net.Mime.MediaTypeNames;
 
 // tous les trucs à améliorer
 // trucs plus importants dans le code : 
@@ -27,8 +28,10 @@ namespace Projet
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        public static void ExecutionJeu()
         {
+            Console.Write("Combien de temps pour la partie (en secondes) : ");
+            int time = Convert.ToInt32(Console.ReadLine());
             Console.Write("Le premier joueur rentre un pseudo : ");
             Joueur joueur1 = new Joueur(Console.ReadLine());
             Console.Write("Le deuxième joueur rentre un pseudo (pas le même si possible) : ");
@@ -46,14 +49,20 @@ namespace Projet
 
             Plateau plateau = new Plateau(matrice_des, "en");
             DateTime heureDebut = DateTime.Now;
-            Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
+            Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut, time);
 
             jeu.InitialisationJeu();
             jeu.PartieComplete();
-            if (jeu.PartieTerminee == true)
-            {
-                jeu.FinPartie();
-            }
+            jeu.FinPartie();
+
+            NuageDeMots nuage = new NuageDeMots();
+            nuage.Genere(joueur1.motsTrouves);
+        }
+        public static void Main(string[] args)
+        {
+
+            TestDictionnaire();
+            
         }
 
 

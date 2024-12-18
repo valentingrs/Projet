@@ -1,11 +1,129 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "SixLabors.ImageSharp/3.1.6": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
+      "System.Drawing.Common/9.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/System.Drawing.Common.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Drawing.Common.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp2.0/System.Drawing.Common.targets": {}
+        }
+      },
+      "WordCloudSharp/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/WordCloudSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/WordCloudSharp.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "SixLabors.ImageSharp/3.1.6": {
+      "sha512": "dHQ5jugF9v+5/LCVHCWVzaaIL6WOehqJy6eju/0VFYFPEj2WtqkGPoEV9EVQP83dHsdoqYaTuWpZdwAd37UwfA==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/3.1.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/SixLabors.ImageSharp.props",
+        "lib/net6.0/SixLabors.ImageSharp.dll",
+        "lib/net6.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.3.1.6.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
+    "System.Drawing.Common/9.0.0": {
+      "sha512": "uoozjI3+dlgKh2onFJcz8aNLh6TRCPlLSh8Dbuljc8CdvqXrxHOVysJlrHvlsOCqceqGBR1wrMPxlnzzhynktw==",
+      "type": "package",
+      "path": "system.drawing.common/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Drawing.Common.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Drawing.Common.targets",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net462/System.Drawing.Common.dll",
+        "lib/net462/System.Drawing.Common.pdb",
+        "lib/net462/System.Drawing.Common.xml",
+        "lib/net8.0/System.Drawing.Common.dll",
+        "lib/net8.0/System.Drawing.Common.pdb",
+        "lib/net8.0/System.Drawing.Common.xml",
+        "lib/net8.0/System.Private.Windows.Core.dll",
+        "lib/net8.0/System.Private.Windows.Core.xml",
+        "lib/net9.0/System.Drawing.Common.dll",
+        "lib/net9.0/System.Drawing.Common.pdb",
+        "lib/net9.0/System.Drawing.Common.xml",
+        "lib/net9.0/System.Private.Windows.Core.dll",
+        "lib/net9.0/System.Private.Windows.Core.xml",
+        "lib/netstandard2.0/System.Drawing.Common.dll",
+        "lib/netstandard2.0/System.Drawing.Common.pdb",
+        "lib/netstandard2.0/System.Drawing.Common.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "system.drawing.common.9.0.0.nupkg.sha512",
+        "system.drawing.common.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "WordCloudSharp/1.1.0": {
+      "sha512": "GxVZrLI7tA/814IoXW9D00xhzJZY3YWrcOt1pQhqgsXUMiTjPOIWNmlR/y2YgImerv6kG5Ij8sr5kniHS5OCHg==",
+      "type": "package",
+      "path": "wordcloudsharp/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/WordCloudSharp.dll",
+        "lib/netstandard2.0/WordCloudSharp.dll",
+        "wordcloudsharp.1.1.0.nupkg.sha512",
+        "wordcloudsharp.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "SixLabors.ImageSharp >= 3.1.6",
+      "System.Drawing.Common >= 9.0.0",
+      "WordCloudSharp >= 1.1.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\valen\\.nuget\\packages\\": {},
@@ -50,6 +168,20 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "SixLabors.ImageSharp": {
+            "target": "Package",
+            "version": "[3.1.6, )"
+          },
+          "System.Drawing.Common": {
+            "target": "Package",
+            "version": "[9.0.0, )"
+          },
+          "WordCloudSharp": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

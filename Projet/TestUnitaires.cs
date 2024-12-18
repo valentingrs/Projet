@@ -140,10 +140,17 @@ namespace Projet
         {
             string filename = "MotsPossiblesFR.txt";
             Dictionnaire dicoFr = new Dictionnaire("fr");
-            string mot = dicoFr.Mots[50];
-            Console.WriteLine(mot);
-            Console.WriteLine(dicoFr.RechercheDichoRecursif(mot));
-            Console.WriteLine(dicoFr.RechercheDichoRecursif("DLSKJDSMLQK"));
+			for (int i =0; i < dicoFr.Mots.Count(); i++)
+			{
+				if (!dicoFr.Contains(dicoFr.Mots[i])) 
+				{ 
+					Console.WriteLine(dicoFr.Mots[i] + " echec du test");
+					break;
+				}
+
+			}
+			Console.WriteLine(dicoFr.Contains("VER"));
+            
         }
 
 
@@ -174,7 +181,9 @@ namespace Projet
             Joueur joueur2 = new Joueur("joueur 2 ");
             Plateau plateau = null;
             DateTime heureDebut = DateTime.Now;
-            Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut);
+			int time = 300;
+            Jeu jeu = new Jeu(joueur1, joueur2, plateau, heureDebut, time);
+
             jeu.InitialisationJeu();
         }
 

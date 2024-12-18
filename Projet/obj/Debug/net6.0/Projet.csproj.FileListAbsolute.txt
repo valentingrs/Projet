@@ -12,3 +12,8 @@ C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\refint\Projet.dll
 C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.pdb
 C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.genruntimeconfig.cache
 C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\ref\Projet.dll
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.csproj.AssemblyReference.cache
+C:\Users\valen\source\repos\Projet\Projet\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\valen\source\repos\Projet\Projet\obj\Debug\net6.0\Projet.csproj.CopyComplete
+C:\Users\valen\source\repos\Projet\Projet\bin\Debug\net6.0\SixLabors.ImageSharp.dll
+C:\Users\valen\source\repos\Projet\Projet\bin\Debug\net6.0\WordCloudSharp.dll
