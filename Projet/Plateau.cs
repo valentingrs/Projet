@@ -75,10 +75,6 @@ namespace Projet
 
         public bool ContraintePlateau(string mot)
         {
-            if (dictionnaire.Contains(mot)) { Console.WriteLine(mot + " appartient bien au dico"); }
-            else { Console.WriteLine(mot + " n'a appartient pas au dico"); }
-
-            
             if (dictionnaire.Contains(mot) && Verif_Plateau(mot)) return true;
             Console.WriteLine("Mot invalide\n");
             

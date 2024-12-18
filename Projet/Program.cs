@@ -45,7 +45,7 @@ namespace Projet
             Console.Write("Le deuxième joueur rentre un pseudo : ");            
             Joueur joueur2 = new Joueur(Console.ReadLine());
 
-            Console.Write("entrer la taille du plateau (nombre de dés par lignes et colonne: ");
+            Console.Write("Entrer la taille du plateau (nombre de dés par lignes et colonne) : ");
             int n = Convert.ToInt32(Console.ReadLine());
             while (n == null || n <= 1) 
             { 
@@ -69,7 +69,8 @@ namespace Projet
 
             jeu.InitialisationJeu();
             jeu.PartieComplete();
-            jeu.FinPartie();
+            if (jeu.PartieTerminee) { jeu.FinPartie(); }
+            
 
             //NuageDeMots nuage = new NuageDeMots();
             //nuage.Genere(joueur1.motsTrouves);

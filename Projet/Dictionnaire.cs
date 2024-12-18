@@ -154,7 +154,6 @@ namespace Projet
         {
             if (!motsParLongueur.ContainsKey(mot.Length)) 
             {
-                Console.WriteLine("c'est containskey qui foire");
                 return false;
             }
                 
@@ -168,7 +167,6 @@ namespace Projet
 
             if (deb > fin)
             {
-                Console.WriteLine("il n'appartient aps");
                 return false;
             }
                 
