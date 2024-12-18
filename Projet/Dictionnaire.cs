@@ -12,9 +12,8 @@ namespace Projet
 
         #endregion Attributs
 
-        public Dictionnaire(string langue)
-        {
-
+        public Dictionnaire(string langue) {
+            
             this.langue = langue;
             this.mots = LireFichierMots($"MotsPossibles{langue.ToUpper()}.txt");
             this.motsParLongueur = TriMotsParLongueur();
@@ -23,16 +22,14 @@ namespace Projet
 
         #region Proprietes
 
-        public string Langue
-        {
-
+        public string Langue {
+            
             get { return langue; }
             set { langue = value; }
         }
 
-        public List<string> Mots
-        {
-
+        public List<string> Mots {
+            
             get { return mots; }
         }
 
@@ -40,42 +37,38 @@ namespace Projet
 
         #region Methodes
 
-        public List<string> LireFichierMots(string filename)
-        {
-
+        public List<string> LireFichierMots(string filename) {
+            
             List<string> dico = new List<string>();
             string[] lignes = File.ReadAllLines(filename);
 
-            foreach (string line in lignes)
-            {
-
+            foreach (string line in lignes) {
+                
                 string[] motsParLigne = line.Split(' ');
 
-                foreach (string mot in motsParLigne)
-                {
-
+                foreach (string mot in motsParLigne) {
+                    
                     dico.Add(mot);
                 }
             }
 
             return dico;
-        }
+         }
 
         public Dictionary<int, List<string>> TriMotsParLongueur()
         {
             Dictionary<int, List<string>> motsParLongueur = new Dictionary<int, List<string>>();
 
-            foreach (string mot in this.mots)
-            {
-
+            foreach (string mot in this.mots) {
+                
                 int longueur = mot.Length;
 
                 if (!motsParLongueur.ContainsKey(longueur)) // si dans le dico il n'y a pas cette longueur la
                 {
-                    motsParLongueur[longueur] = new List<string>(); // alors on créé une nouvelle liste associée à une nv longuer
+                    motsParLongueur[longueur] = new List<string>(); // alors on crÃ©Ã© une nouvelle liste associÃ©e Ã  une nv longuer
                 }
 
-                motsParLongueur[longueur].Add(mot); // on ajoute le mots à la liste de mots 
+                motsParLongueur[longueur].Add(mot); // on ajoute le mots Ã  la liste de mots 
             }
 
             // tri de chaque liste
@@ -93,13 +86,13 @@ namespace Projet
 
             foreach (string mot in this.mots)
             {
-                char c = mot[0]; // premier caractère du mot
+                char c = mot[0]; // premier caractÃ¨re du mot
 
-                if (!motsParLettre.ContainsKey(c)) // si dans le dico il n'y a pas de mot commencant par cette lettre
+                if(!motsParLettre.ContainsKey(c)) // si dans le dico il n'y a pas de mot commencant par cette lettre
                 {
-                    motsParLettre[c] = new List<string>(); // alors on créé une nouvelle liste associée à une nv longuer
+                    motsParLettre[c] = new List<string>(); // alors on crÃ©Ã© une nouvelle liste associÃ©e Ã  une nv longuer
                 }
-                motsParLettre[c].Add(mot); // on ajoute le mots à la liste de mots 
+                motsParLettre[c].Add(mot); // on ajoute le mots Ã  la liste de mots 
             }
 
             // tri de chaque liste
@@ -114,7 +107,7 @@ namespace Projet
         public string toString()
         {
             string s = "";
-
+        
             for (int i = 2; i <= 24; i++)
             {
                 if (motsParLongueur.ContainsKey(i))
@@ -123,10 +116,10 @@ namespace Projet
                     s = s + i + " : " + occ + "; ";
                 }
             }
-
+            
             s = s + "\n";
             string alphabet = "AZERTYUIOPQSDFGHJKLMWXCVBN";
-
+            
             foreach (char lettre in alphabet)
             {
                 if (motsParLettres.ContainsKey(lettre))
@@ -135,7 +128,7 @@ namespace Projet
                     s = s + lettre + " : " + occ + " ; ";
                 }
             }
-
+            
             return s;
         }
 
@@ -145,7 +138,7 @@ namespace Projet
             if (!motsParLongueur.ContainsKey(mot.Length))
             {
                 Console.WriteLine("c'est containskey qui foire");
-
+                
                 return false;
             }
 
@@ -160,7 +153,7 @@ namespace Projet
             if (deb > fin)
             {
                 Console.WriteLine("il n'appartient aps");
-
+                
                 return false;
             }
 
@@ -170,13 +163,13 @@ namespace Projet
             if (mot == mots[mil]) return true;
 
             if (String.Compare(mot, mots[mil]) < 0) return RechercheDichoRecursif(mot, deb, mil - 1);
-
+            
             else return RechercheDichoRecursif(mot, mil + 1, fin);
         }
 
         public bool Contains(string mot)
         {
-            // on suppose que le dictionnaire est dans l'ordre alphabétiqeu donc trié
+            // on suppose que le dictionnaire est dans l'ordre alphabÃ©tiqeu donc triÃ©
             return RechercheDichoRecursif(mot);
         }
 
