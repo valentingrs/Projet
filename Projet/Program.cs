@@ -13,7 +13,6 @@ using static System.Net.Mime.MediaTypeNames;
 // trucs plus importants dans le code : 
 // nuage de mots
 // complexité des méthodes, simplification de code, regions, commentaires, ...
-// posssibilité de faire à plusieurs joueurs ; de choisir le temps de la partie
 // convertir temps restant de la partie en affiahce minutes secondes
 // classe Jeu : arrêter dès que le temps imparti est écoulé ? est ce que c'est utile d'afficher le temps restant ?
 
@@ -35,6 +34,7 @@ namespace Projet
             Console.Write("Le premier joueur rentre un pseudo : ");
             Joueur joueur1 = new Joueur(Console.ReadLine());
             Console.Write("Le deuxième joueur rentre un pseudo (pas le même si possible) : ");
+            while (Console.ReadLine() == joueur1.Nom) { Console.Write("Le deuxième joueur rentre un pseudo (pas le même si possible) : "); }
             Joueur joueur2 = new Joueur(Console.ReadLine());
 
             Dé[,] matrice_des = new Dé[4, 4]; // création des des
@@ -55,13 +55,13 @@ namespace Projet
             jeu.PartieComplete();
             jeu.FinPartie();
 
-            NuageDeMots nuage = new NuageDeMots();
-            nuage.Genere(joueur1.motsTrouves);
+            //NuageDeMots nuage = new NuageDeMots();
+            //nuage.Genere(joueur1.motsTrouves);
         }
         public static void Main(string[] args)
         {
 
-            TestDictionnaire();
+            ExecutionJeu();
             
         }
 
