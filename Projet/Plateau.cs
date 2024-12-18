@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using static Projet.Dé;
+using static Projet.DÃ©;
 using static Projet.Dictionnaire;
 using static Projet.Joueur;
 
@@ -9,16 +9,18 @@ namespace Projet
     {
         #region Attributs
 
-        private Dé[,] plateauDes;
+        private DÃ©[,] plateauDes;
         private char[,] valVisible;
         private Dictionnaire dictionnaire;
+        
         #endregion Attributs
 
         #region Constructeur
-        public Plateau(Dé[,] plateauDes, string langue)
+            
+        public Plateau(DÃ©[,] plateauDes, string langue)
         {
             if (plateauDes.GetLength(0) != plateauDes.GetLength(1))
-                throw new ArgumentException("Le plateau doit être de la forme nxn.");
+                throw new ArgumentException("Le plateau doit Ãªtre de la forme nxn.");
 
             this.plateauDes = plateauDes;
             this.valVisible = new char[plateauDes.GetLength(0), plateauDes.GetLength(1)];
@@ -33,13 +35,14 @@ namespace Projet
             }
 
         }
+        
         #endregion Constructeur
 
-        #region Propriété
+        #region PropriÃ©tÃ©
 
-        #endregion Propriété
+        #endregion PropriÃ©tÃ©
 
-        #region Méthode
+        #region MÃ©thode
 
         public override string ToString()
         {
@@ -57,14 +60,14 @@ namespace Projet
 
         public void RelancerDes() // relancer les des
         {
-            Dé de;
+            DÃ© de;
             for (int i = 0; i < plateauDes.GetLength(0); i++)
             {
                 for (int j = 0; j < plateauDes.GetLength(1); j++)
                 {
-                    de = plateauDes[i, j]; // met à jour la face Visible des de
+                    de = plateauDes[i, j]; // met Ã  jour la face Visible des de
                     de.Lance();
-                    valVisible[i, j] = plateauDes[i, j].LettresDe[plateauDes[i, j].FaceVisible]; // maj plateau avec les dés mis à jour
+                    valVisible[i, j] = plateauDes[i, j].LettresDe[plateauDes[i, j].FaceVisible]; // maj plateau avec les dÃ©s mis Ã  jour
 
                 }
             }
@@ -96,6 +99,7 @@ namespace Projet
 
             return false;
         }
+        
         public bool Trouve_mot(char[,] plateau, bool[,] plateau_de_visite, int i, int j, string mot, int index)
         {
             if (i < 0 || j < 0 || i >= plateau.GetLength(0) || j >= plateau.GetLength(0) || plateau_de_visite[i, j]) return false;
@@ -118,8 +122,6 @@ namespace Projet
 
             return false;
         }
-
-
 
         #endregion Methode
     }
