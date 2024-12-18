@@ -33,14 +33,21 @@ namespace Projet
             int time = Convert.ToInt32(Console.ReadLine());
             Console.Write("Le premier joueur rentre un pseudo : ");
             Joueur joueur1 = new Joueur(Console.ReadLine());
-            Console.Write("Le deuxième joueur rentre un pseudo (pas le même si possible) : ");
-            while (Console.ReadLine() == joueur1.Nom) { Console.Write("Le deuxième joueur rentre un pseudo (pas le même si possible) : "); }
+            Console.Write("Le deuxième joueur rentre un pseudo : ");            
             Joueur joueur2 = new Joueur(Console.ReadLine());
 
-            Dé[,] matrice_des = new Dé[4, 4]; // création des des
-            for (int i = 0; i < 4; i++)
+            Console.Write("entrer la taille du plateau (nombre de dés par lignes et colonne: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            while (n == null || n <= 1) 
+            { 
+                Console.Write("Entrer une taille valide : ");
+                n = Convert.ToInt32(Console.ReadLine());
+            }
+
+            Dé[,] matrice_des = new Dé[n, n]; // création des des
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < n; j++)
                 {
                     Dé de = new Dé();
                     matrice_des[i, j] = de;
