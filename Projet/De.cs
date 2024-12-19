@@ -33,6 +33,8 @@ namespace Projet
 
         private List<char> LettresFichiers(string filename)
         {
+            if (filename == null || filename.Length == 0) { throw new Exception("Le fichier rentré est invalide."); }
+
             List<char> listeLettres = new List<char>();
 
             string[] lignes = File.ReadAllLines(filename);
@@ -49,6 +51,7 @@ namespace Projet
 
         private bool RemplirDe(List<char> alphabet)
         {
+            if (alphabet == null || alphabet.Count() == 0) { throw new Exception("L'alphabet est invalide"); }
             bool full = true;
             int n = alphabet.Count - 1;
             for (int i = 0; i < 6; i++)

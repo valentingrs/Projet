@@ -53,7 +53,7 @@ namespace Projet
             }
 
             return dico;
-         }
+        }
 
         public Dictionary<int, List<string>> TriMotsParLongueur()
         {
@@ -74,7 +74,7 @@ namespace Projet
             // tri de chaque liste
             foreach (int i in motsParLongueur.Keys)
             {
-                motsParLongueur[i].Sort();
+                TriFusion(motsParLongueur[i]);
             }
 
             return motsParLongueur;
@@ -98,7 +98,7 @@ namespace Projet
             // tri de chaque liste
             foreach (char c in motsParLettre.Keys)
             {
-                motsParLettre[c].Sort();
+                TriFusion(motsParLettre[c]);
             }
 
             return motsParLettre;
@@ -132,13 +132,70 @@ namespace Projet
             return s;
         }
 
+        public static void TriFusion(List<string> liste)
+        {
+            if (liste.Count() <= 1)
+            {
+                return;
+            }
+
+            else
+            {
+                int mil = liste.Count() / 2;
+
+                List<string> left = liste.GetRange(0, mil);
+                List<string> right = liste.GetRange(mil, liste.Count()-mil);
+
+
+                TriFusion(left);
+                TriFusion(right);
+                
+                Fusion(liste, left, right);
+            }
+            
+        }
+        public static void Fusion(List<string> liste, List<string> left, List<string> right)
+        {
+            int i = 0;
+            int j = 0;
+            int k = 0;
+            while (i < left.Count() && j < right.Count())
+            {
+                if (String.Compare(left[i], right[j]) <= 0)
+                {
+                    liste[k] = left[i];
+                    i++;
+                }
+                else
+                {
+                    liste[k] = right[j];
+                    j++;
+                }
+                k++;
+            }     
+
+            while (i < left.Count())
+            {
+                liste[k] = left[i];
+                i++;
+                k++;
+            }
+
+            while (j < right.Count())
+            {
+                liste[k] = right[j];
+                j++;
+                k++;
+            }
+        }
+
+        
+
 
         public bool RechercheDichoRecursif(string mot, int deb = 0, int fin = -1)
         {
             if (!motsParLongueur.ContainsKey(mot.Length))
-            {
-                Console.WriteLine("c'est containskey qui foire");
-                
+            {                
                 return false;
             }
 
@@ -151,9 +208,7 @@ namespace Projet
             }
 
             if (deb > fin)
-            {
-                Console.WriteLine("il n'appartient aps");
-                
+            {                
                 return false;
             }
 

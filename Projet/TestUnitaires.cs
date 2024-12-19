@@ -1,5 +1,8 @@
+using SixLabors.ImageSharp.Formats.Tiff.Compression.Decompressors;
 using System;
+using System.Diagnostics.Contracts;
 using static Projet.Dé;
+using static Projet.Dictionnaire;
 
 //Faire les test pour le vide et le null
 
@@ -9,7 +12,7 @@ namespace Projet
 	{
 		
 		// Test de la méthode RemplirDe -> voir si la proportion de chaque lettre est respectée
-		static public void TestRemplir(int n) // fonction à la con juste pour voir si ça marche
+		public void TestRemplir(int n) // fonction à la con juste pour voir si ça marche
 		{
 			Console.WriteLine("Test de la méthode RemplirDe : ");
 			Dictionary<char, int> dict = new Dictionary<char, int>
@@ -72,7 +75,7 @@ namespace Projet
 
 		}
 
-		static public void TestDe()
+		public void TestDe()
 		{
 			Dé de = new Dé();
 			if (de.LettresDe.Length != 6) { Console.WriteLine("Echec du test, pas la bonne longueur"); }
@@ -80,7 +83,7 @@ namespace Projet
 			else { Console.WriteLine("TestDe réussi, bonne longeuur, bonne face visible"); }
 		}
 
-		static public void TestDeString()
+		public static void TestDeString()
 		{
 			Dé de = new Dé();
 			string[] tab = (de.ToString()).Split(',');
@@ -89,7 +92,7 @@ namespace Projet
 
 		}
 
-		static public void TestLance(int n)
+		public static void TestLance(int n)
 		{
 			Dé de = new Dé();
 			Console.WriteLine(de);
@@ -101,7 +104,7 @@ namespace Projet
 
 		}
 
-		static public void TestJoueur()
+		public static void TestJoueur()
 		{
 			Joueur joueur = new Joueur("Pierre");
 			Joueur joueur2 = new Joueur("Jules", 10);
@@ -113,7 +116,7 @@ namespace Projet
 				Console.WriteLine("Test réussi");
 		}
 
-		static public void TestAdd()
+		public static void TestAdd()
 		{
 			Joueur joueur = new Joueur("Pierre", 5);
 			joueur.Add_Mot("chat");
@@ -122,7 +125,7 @@ namespace Projet
 			else { Console.WriteLine("Test réussi !"); }
 		}
 
-		static public void TestContains()
+		public static void TestContains()
 		{
 			Joueur joueur = new Joueur("Pierre");
 			joueur.Add_Mot("chat");
@@ -187,6 +190,18 @@ namespace Projet
             jeu.InitialisationJeu();
         }
 
-
+		public static void TestTriFusion()
+		{
+			List<string> listeTest = new List<string>();
+			listeTest.Add("chocolat");
+			listeTest.Add("musique");
+			listeTest.Add("arbre");
+			listeTest.Add("portefeuille");
+            listeTest.Add("crayon");
+			foreach (string mot in listeTest) { Console.Write(mot + " "); }
+			Console.WriteLine();
+			TriFusion(listeTest);
+            foreach (string mot in listeTest) { Console.Write(mot + " "); }
+        }
     }
 }
