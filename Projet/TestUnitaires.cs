@@ -190,6 +190,15 @@ namespace Projet
             jeu.InitialisationJeu();
         }
 
+		public static bool EstTrie(List<string> liste)
+		{
+			for (int i =1; i < liste.Count(); i++)
+			{
+				if (String.Compare(liste[i], liste[i-1]) < 0) { return false; }
+			}
+			return true;
+		}
+
 		public static void TestTriFusion()
 		{
 			List<string> listeTest = new List<string>();

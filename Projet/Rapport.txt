@@ -1,0 +1,7 @@
+Pour le test tris nous avons d'abord procédé naïvement à un tri séléction.
+Cependant en testant sur la liste de mots complète, le temps de la fonction de tri était beaucoup trop long, trop long même pour avoir eu une idée précise (au moins 5 minutes)
+Cela est normal car la complexité du tri séléction est dans le pire cas quadratique et on à affaire à une liste de string très longue, près de 130 000 éléments donc forcément, 
+le temps d'execution avec un tri séléction est beaucoup plus fort.
+
+Nous avons donc choisi un tri beaucoup plus rapide que nous avons pu voir en cours de Complexité et d'Algorithmie : le tri Fusion. La différence de temps d'execution est nette (25 ms) avec
+le tri fusion, ce qui est normal car le tri fusion à un cout dans le pire cas quasi-linéaire (O(nlog(n))) ce qui est nettement moins couteux que le tri selection qui a une complexité O(n²)

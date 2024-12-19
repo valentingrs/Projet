@@ -1,14 +1,16 @@
 using System;
 
 namespace Projet
-// est que il faut mettre le cas ou le fichier est null ?
-// COMPLETE ET TESTE ENTIEREMENT 
-// à  optimiser 
 {
     public class Dé
     {
+
+        #region Attributs
         private readonly char[] lettresDe;
         private int faceVisible;
+        #endregion Attributs
+
+        #region Constructeur
         public Dé()
         {
             char[] lettresDe = new char[6];
@@ -19,7 +21,9 @@ namespace Projet
 
             Lance();
         }
+        #endregion Constructeur
 
+        #region Proprietes
         public char[] LettresDe
         {
             get { return lettresDe; }
@@ -30,7 +34,10 @@ namespace Projet
             get { return faceVisible; }
             set { faceVisible = value; }
         }
+        #endregion Proprietes
 
+
+        #region Methodes
         private List<char> LettresFichiers(string filename)
         {
             if (filename == null || filename.Length == 0) { throw new Exception("Le fichier rentré est invalide."); }
@@ -91,5 +98,6 @@ namespace Projet
             }
             return de;
         }
+        #endregion Methodes
     }
 }

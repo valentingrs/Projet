@@ -1,10 +1,11 @@
+using static Projet.TestUnitaires;
+
 namespace Projet
 {
     public class Dictionnaire
     {
         #region Attributs
 
-        //private readonly string[] mots;
         private readonly List<string> mots;
         private Dictionary<int, List<string>> motsParLongueur;
         private Dictionary<char, List<string>> motsParLettres;
@@ -12,13 +13,17 @@ namespace Projet
 
         #endregion Attributs
 
-        public Dictionnaire(string langue) {
-            
+
+        #region Constructeur
+        public Dictionnaire(string langue) 
+        {
+            // en entrée on s'assure déjà que la langue soit bien rentrée
             this.langue = langue;
             this.mots = LireFichierMots($"MotsPossibles{langue.ToUpper()}.txt");
             this.motsParLongueur = TriMotsParLongueur();
             this.motsParLettres = TriMotsParLettre();
         }
+        #endregion Constructeur
 
         #region Proprietes
 
@@ -39,6 +44,10 @@ namespace Projet
 
         public List<string> LireFichierMots(string filename) {
             
+            if (filename == null || filename.Length == 0)
+            {
+                throw new Exception("fichier rentré invalide");
+            }
             List<string> dico = new List<string>();
             string[] lignes = File.ReadAllLines(filename);
 
@@ -201,6 +210,7 @@ namespace Projet
 
 
             List<string> mots = motsParLongueur[mot.Length];
+            if (!EstTrie(mots)) { throw new Exception("La liste n'est pas triee"); }
 
             if (fin == -1)
             {

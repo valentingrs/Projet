@@ -7,20 +7,8 @@ using static Projet.Dictionnaire;
 using static Projet.Joueur;
 using static Projet.Jeu;
 using static Projet.Plateau;
+using static Projet.SolutionsTris;
 using static System.Net.Mime.MediaTypeNames;
-
-// tous les trucs à améliorer
-// trucs plus importants dans le code : 
-// nuage de mots
-// complexité des méthodes, simplification de code, regions, commentaires, ...
-// convertir temps restant de la partie en affiahce minutes secondes
-// classe Jeu : arrêter dès que le temps imparti est écoulé ? est ce que c'est utile d'afficher le temps restant ?
-
-// trucs par rapport au rendu final
-// uml 
-// rapport fnal avec tentatives pour la recherche d'un mot
-// tests unitaires
-// interface graphique ? ia ?
 
 
 namespace Projet
@@ -72,13 +60,14 @@ namespace Projet
             if (jeu.PartieTerminee) { jeu.FinPartie(); }
             
 
-            //NuageDeMots nuage = new NuageDeMots();
-            //nuage.Genere(joueur1.motsTrouves);
+            NuageDeMots nuage = new NuageDeMots();
+            nuage.Genere(joueur1.motsTrouves);
+            nuage.Genere(joueur2.motsTrouves);
         }
         public static void Main(string[] args)
         {
 
-            ExecutionJeu();
+            SolutionsTris.TestTris();
             
         }
 
