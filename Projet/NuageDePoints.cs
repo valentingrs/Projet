@@ -2,7 +2,12 @@ using SixLabors.ImageSharp;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using static Projet.Jeu;
+using System.Diagnostics;
+using SkiaSharp;
+using System;
+using System.Collections.Generic;
 
 namespace Projet
 {
@@ -71,6 +76,13 @@ namespace Projet
             System.IO.File.WriteAllBytes("nuage_de_mots.png", data.ToArray());
 
             Console.WriteLine("Nuage de mots généré et enregistré sous 'nuage_de_mots.png'");
+
+            // Ouvrir le fichier avec l'application par défaut
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = "nuage_de_mots.png",
+                UseShellExecute = true // Obligatoire pour ouvrir le fichier avec le programme par défaut
+            });
         }
     }
 

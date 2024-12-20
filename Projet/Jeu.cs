@@ -65,7 +65,7 @@ namespace Projet
                 { 
 					continuerTour = false; 
 				} 
-				if (plateau.ContraintePlateau(motRentre) == true)
+				if (plateau.ContraintePlateau(motRentre) == true && !joueur1.motsTrouves.Contains(motRentre))
 				{
 					joueur.MotsTrouves.Add(motRentre);
                     joueur.Score += CalculScore(motRentre);
