@@ -4,15 +4,13 @@ using System.Diagnostics.Contracts;
 using static Projet.Dé;
 using static Projet.Dictionnaire;
 
-//Faire les test pour le vide et le null
-
 namespace Projet
 {
 	internal class TestUnitaires
 	{
 		
-		// Test de la méthode RemplirDe -> voir si la proportion de chaque lettre est respectée
-		public void TestRemplir(int n) // fonction à la con juste pour voir si ça marche
+		/// Test de la méthode RemplirDe -> voir si la proportion de chaque lettre est respectée
+		public void TestRemplir(int n) 
 		{
 			Console.WriteLine("Test de la méthode RemplirDe : ");
 			Dictionary<char, int> dict = new Dictionary<char, int>

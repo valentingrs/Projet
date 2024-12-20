@@ -46,23 +46,22 @@ namespace Projet
             Console.WriteLine("Au tour de " + joueur.Nom);
             Console.WriteLine(plateau);
 
-            DateTime debutTour = DateTime.Now; // debut du tour
+            DateTime debutTour = DateTime.Now; /// debut du tour
 			Console.WriteLine();
 
-			int tempsEcoule = 0; // temps ecoulé depuis le début du tour
-			int tempsTour = 60; // temps par défaut d'un tour
+			int tempsEcoule = 0; /// temps ecoulé depuis le début du tour
+			int tempsTour = 60; /// temps par défaut d'un tour
 
-			if (tempsPartie - tempsEcoulePartie < 60) { tempsTour = tempsPartie - tempsEcoulePartie; } // si un nouveau tour commence alors qu'il reste moins d'une minute
+			if (tempsPartie - tempsEcoulePartie < 60) { tempsTour = tempsPartie - tempsEcoulePartie; } /// si un nouveau tour commence alors qu'il reste moins d'une minute
 			bool continuerTour = true;
 
-            while (tempsEcoule < tempsTour && continuerTour) // tant que il ne s'est pas écoulé 1 minute depuis le début du tour
+            while (tempsEcoule < tempsTour && continuerTour) /// tant que il ne s'est pas écoulé 1 minute depuis le début du tour
 			{
 
 				Console.WriteLine("Temps restant du tour : " + (tempsTour-tempsEcoule) + "s");
 				Console.Write("Rentrer un mot : ");
-
 				string motRentre = Console.ReadLine().Trim().ToUpper();
-				if (motRentre == "") // le joueur a plus d'inspi
+				if (motRentre == "") /// le joueur a plus d'inspi
                 { 
 					continuerTour = false; 
 				} 
@@ -72,15 +71,17 @@ namespace Projet
                     joueur.Score += CalculScore(motRentre);
 				}
 
-                tempsEcoule = Convert.ToInt32((DateTime.Now - debutTour).TotalSeconds);// maj du temps écoulé depuis le début du tour
-				tempsEcoulePartie = Convert.ToInt32((DateTime.Now - debutPartie).TotalSeconds); // maj du temps écoulé depuis le début de la partie
+                tempsEcoule = Convert.ToInt32((DateTime.Now - debutTour).TotalSeconds);/// maj du temps écoulé depuis le début du tour
+				tempsEcoulePartie = Convert.ToInt32((DateTime.Now - debutPartie).TotalSeconds); /// maj du temps écoulé depuis le début de la partie
+                Console.WriteLine("");
+
             }
-			Console.WriteLine("Fin de votre tour " + joueur.Nom);
+            Console.WriteLine("Fin de votre tour " + joueur.Nom);
 			joueur.AfficherMotsTrouves();
 			joueur.AfficherScore();
 
             
-            plateau.RelancerDes(); // bah du coup la première version du plateau sert à rien mais oklm
+            plateau.RelancerDes();
             
         }
 

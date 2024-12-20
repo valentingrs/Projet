@@ -17,7 +17,7 @@ namespace Projet
         #region Constructeur
         public Dictionnaire(string langue) 
         {
-            // en entrée on s'assure déjà que la langue soit bien rentrée
+            /// en entrée on s'assure déjà que la langue soit bien rentrée
             this.langue = langue;
             this.mots = LireFichierMots($"MotsPossibles{langue.ToUpper()}.txt");
             this.motsParLongueur = TriMotsParLongueur();
@@ -72,15 +72,15 @@ namespace Projet
                 
                 int longueur = mot.Length;
 
-                if (!motsParLongueur.ContainsKey(longueur)) // si dans le dico il n'y a pas cette longueur la
+                if (!motsParLongueur.ContainsKey(longueur)) /// si dans le dico il n'y a pas cette longueur la
                 {
-                    motsParLongueur[longueur] = new List<string>(); // alors on créé une nouvelle liste associée à une nv longuer
+                    motsParLongueur[longueur] = new List<string>(); /// alors on créé une nouvelle liste associée à une nv longuer
                 }
 
-                motsParLongueur[longueur].Add(mot); // on ajoute le mots à la liste de mots 
+                motsParLongueur[longueur].Add(mot); /// on ajoute le mots à la liste de mots 
             }
 
-            // tri de chaque liste
+            /// tri de chaque liste
             foreach (int i in motsParLongueur.Keys)
             {
                 TriFusion(motsParLongueur[i]);
@@ -95,16 +95,16 @@ namespace Projet
 
             foreach (string mot in this.mots)
             {
-                char c = mot[0]; // premier caractère du mot
+                char c = mot[0]; /// premier caractère du mot
 
-                if(!motsParLettre.ContainsKey(c)) // si dans le dico il n'y a pas de mot commencant par cette lettre
+                if(!motsParLettre.ContainsKey(c)) /// si dans le dico il n'y a pas de mot commencant par cette lettre
                 {
-                    motsParLettre[c] = new List<string>(); // alors on créé une nouvelle liste associée à une nv longuer
+                    motsParLettre[c] = new List<string>(); /// alors on créé une nouvelle liste associée à une nv longuer
                 }
-                motsParLettre[c].Add(mot); // on ajoute le mots à la liste de mots 
+                motsParLettre[c].Add(mot); /// on ajoute le mots à la liste de mots 
             }
 
-            // tri de chaque liste
+            /// tri de chaque liste
             foreach (char c in motsParLettre.Keys)
             {
                 TriFusion(motsParLettre[c]);

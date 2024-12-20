@@ -13,8 +13,8 @@ namespace Projet
         #region Constructeur
         public Dé()
         {
-            char[] lettresDe = new char[6];
-            this.lettresDe = lettresDe;
+            char[] lettresDe = new char[6]; /// tableau de caractères
+            this.lettresDe = lettresDe; /// position dans le tableau de la lettre qui sera la face visible du dé
 
             List<char> alphabet = LettresFichiers("Lettres.txt");
             RemplirDe(alphabet);
@@ -38,7 +38,7 @@ namespace Projet
 
 
         #region Methodes
-        private List<char> LettresFichiers(string filename)
+        private List<char> LettresFichiers(string filename) /// extrait les lettres du fichiers
         {
             if (filename == null || filename.Length == 0) { throw new Exception("Le fichier rentré est invalide."); }
 
@@ -56,7 +56,8 @@ namespace Projet
             return listeLettres;
         }
 
-        private bool RemplirDe(List<char> alphabet)
+        private bool RemplirDe(List<char> alphabet) 
+        ///  Remplit le dé aléatoirement avec à partir du jeu de lettres
         {
             if (alphabet == null || alphabet.Count() == 0) { throw new Exception("L'alphabet est invalide"); }
             bool full = true;
@@ -65,12 +66,12 @@ namespace Projet
             {
                 Random r = new Random();
                 int posLettreTiree = r.Next(0, n);
-                lettresDe[i] = alphabet[posLettreTiree];
+                lettresDe[i] = alphabet[posLettreTiree]; /// remplissage du dé
             }
 
             for (int i = 0; i < 6; i++)
             {
-                if (lettresDe[i] == ' ') { full = false; }
+                if (lettresDe[i] == ' ') { full = false; } /// on vérifie que le tableau soit rempli entièrement, pas de vides
             }
             return full;
         }

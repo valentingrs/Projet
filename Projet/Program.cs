@@ -6,10 +6,10 @@ using static Projet.Dé;
 using static Projet.Dictionnaire;
 using static Projet.Joueur;
 using static Projet.Jeu;
+using static Projet.NuageDePoints;
 using static Projet.Plateau;
 using static Projet.SolutionsTris;
 using static System.Net.Mime.MediaTypeNames;
-
 
 namespace Projet
 {
@@ -41,7 +41,7 @@ namespace Projet
                 n = Convert.ToInt32(Console.ReadLine());
             }
 
-            Dé[,] matrice_des = new Dé[n, n]; // création des des
+            Dé[,] matrice_des = new Dé[n, n]; /// création des des
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -58,16 +58,17 @@ namespace Projet
             jeu.InitialisationJeu();
             jeu.PartieComplete();
             if (jeu.PartieTerminee) { jeu.FinPartie(); }
-            
 
-            NuageDeMots nuage = new NuageDeMots();
-            nuage.Genere(joueur1.motsTrouves);
-            nuage.Genere(joueur2.motsTrouves);
+            List<string> tousLesMots = new List<string>();
+            foreach (string elem in joueur1.motsTrouves) { tousLesMots.Add(elem); }
+            foreach (string elem in joueur2.motsTrouves) { tousLesMots.Add(elem); }
+            NuageDePoints.Genere(tousLesMots);
         }
+
         public static void Main(string[] args)
         {
 
-            SolutionsTris.TestTris();
+            ExecutionJeu();
             
         }
 

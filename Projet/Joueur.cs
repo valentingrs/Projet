@@ -1,34 +1,33 @@
 using static System.Formats.Asn1.AsnWriter;
-// COMPLETE ET TESTEE 
-// à optimiser
+
 namespace Projet
 {
 	public class Joueur
 	{
 		#region Attributs
 
-		// Attributs de la classe joueur
+		/// Attributs de la classe joueur
 
-		private string nom; // nom du joueur
-		private int score; // score du joueur
-		public List<string> motsTrouves; // mots trouvés par les joueurs
+		private string nom; /// nom du joueur
+		private int score; /// score du joueur
+		public List<string> motsTrouves; /// mots trouvés par les joueurs
 
 		#endregion Attributs
 
 		#region Constructeurs
 
-		// Constructeurs de la classe joueur
+		/// Constructeurs de la classe joueur
 		public Joueur(string nom, int score = 0)
 		{
-			// Verifie si nom n'est pas nul ou juste composé d'espaces et renvoie une exception
+			/// Verifie si nom n'est pas nul ou juste composé d'espaces et renvoie une exception
 			if (nom == null || nom.Trim().Length == 0)
 			{
 				throw new ArgumentException("Le nom du joueur n'est pas adaptée");
 			}
 
-			this.nom = nom; // Nom du joueur
-			this.score = score; // Score obtenu par le joueur
-			this.motsTrouves = new List<string>(); // Mots Trouvés par le joueur
+			this.nom = nom; /// Nom du joueur
+			this.score = score; /// Score obtenu par le joueur
+			this.motsTrouves = new List<string>(); /// Mots Trouvés par le joueur
 		}
 
 		#endregion Constructeurs
@@ -56,10 +55,10 @@ namespace Projet
 
 		#region Méthodes
 
-		// Méthode qui vérifie si un mot a deja etais trouvé par le joueur par le passé
+		/// Méthode qui vérifie si un mot a deja etais trouvé par le joueur par le passé
 		public bool Contain(string mot)
 		{
-			foreach (string Mot in motsTrouves) // Traverse la liste
+			foreach (string Mot in motsTrouves) /// Traverse la liste
 			{
 				if (Mot == mot)
 				{

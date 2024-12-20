@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "lBUMs6E6bu3+11/GMl7YwV0U+n1/mi5FKw16ISYxqE6KZjKbIUuD1wW7TCiV40ooVqo04I9a9cN1A4wCRcCcZQ==",
+  "dgSpecHash": "5zTR6I8iUhcOo/8HouSiBOZZQ7he9VEvFkhbPXNGImLjsNf9mml8J7CTY0dY9I9Aq+mcUXzxn6LYsXBVVpoIUQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\valen\\source\\repos\\Projet\\Projet\\Projet.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\valen\\.nuget\\packages\\sixlabors.imagesharp\\3.1.6\\sixlabors.imagesharp.3.1.6.nupkg.sha512",
+    "C:\\Users\\valen\\.nuget\\packages\\skiasharp\\3.116.1\\skiasharp.3.116.1.nupkg.sha512",
+    "C:\\Users\\valen\\.nuget\\packages\\skiasharp.nativeassets.macos\\3.116.1\\skiasharp.nativeassets.macos.3.116.1.nupkg.sha512",
+    "C:\\Users\\valen\\.nuget\\packages\\skiasharp.nativeassets.win32\\3.116.1\\skiasharp.nativeassets.win32.3.116.1.nupkg.sha512",
     "C:\\Users\\valen\\.nuget\\packages\\system.drawing.common\\9.0.0\\system.drawing.common.9.0.0.nupkg.sha512",
     "C:\\Users\\valen\\.nuget\\packages\\wordcloudsharp\\1.1.0\\wordcloudsharp.1.1.0.nupkg.sha512"
   ],
