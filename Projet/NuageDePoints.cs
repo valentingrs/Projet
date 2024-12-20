@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using static Projet.Jeu;
-using System.Diagnostics;
-using SkiaSharp;
 using System;
 using System.Collections.Generic;
 
@@ -13,7 +11,7 @@ namespace Projet
 {
     public class NuageDePoints
     {
-        public static int CalculerScore(string mot)
+        public static int CalculerScore(string mot) /// calculer le score pour le nuage de points
         {
             return 10*mot.Length;
         }

@@ -62,6 +62,7 @@ namespace Projet
 			{
 				if (Mot == mot)
 				{
+					Console.WriteLine("Ce mot a déjà été trouvé");
 					return true;
 				}
 			}

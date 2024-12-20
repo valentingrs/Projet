@@ -17,7 +17,7 @@ namespace Projet
 		private int tempsPartie; // temps que doit durer la partie
 		private int tempsEcoulePartie; // temps ecoule depuis le début de la partie
 		private bool partieTerminee; // statut de la partie : en cours ou non
-		private Dictionary<char, int> lettresScore = new Dictionary<char, int>(); // dictionnaire qui associe un score aux lettres
+		private readonly Dictionary<char, int> lettresScore = new Dictionary<char, int>(); // dictionnaire qui associe un score aux lettres
 
 		public Jeu(Joueur joueur1, Joueur joueur2, Plateau plateau, DateTime debutPartie, int tempsPartie)
 		{
@@ -65,7 +65,7 @@ namespace Projet
                 { 
 					continuerTour = false; 
 				} 
-				if (plateau.ContraintePlateau(motRentre) == true && !joueur1.motsTrouves.Contains(motRentre))
+				if (plateau.ContraintePlateau(motRentre) == true && !joueur.Contain(motRentre))
 				{
 					joueur.MotsTrouves.Add(motRentre);
                     joueur.Score += CalculScore(motRentre);
@@ -94,7 +94,7 @@ namespace Projet
 			}
 			return score;
 		}
-        private Dictionary<char, int> LettresScore()
+        private static Dictionary<char, int> LettresScore()
 		{
 			Dictionary<char, int> scoreLettres = new Dictionary<char, int>();
             string[] lignes = File.ReadAllLines("Lettres.txt");
